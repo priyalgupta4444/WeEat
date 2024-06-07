@@ -1,0 +1,28 @@
+[
+    {
+      "name": "Tomato soup",
+      "price": 100
+    },
+    {
+      "name": "Daal",
+      "price": 150
+    },
+    {
+      "name": "Salad",
+      "price": 40
+    },
+    {
+        "name": "naan",
+        "price": 30
+    },
+    {
+        "name": "Butter panner",
+        "price": 210
+    },
+    {
+        "name": "rice",
+        "price": 200
+    }
+
+  ]
+  

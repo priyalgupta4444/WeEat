@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Menu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        header {
+            background-color: #f0f0f0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        #heading {
+            margin: 0;
+        }
+
+        nav {
+            float: right;
+            margin-top: 20px;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        nav a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            color: #666;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+
+        button {
+            margin-left: 10px;
+        }
+
+        #bucket {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1 id="heading">WeEat</h1>
+        <nav>
+            <ul>
+                <li><a href="Login_page.html">Login</a></li>
+                <li><a href="admin.html">Admin</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <br>
+    <h1>  Menu</h1>
+    <ul id="menu"></ul>
+    <div id="bucket">
+        <h2>Selected Items</h2>
+        <ul id="selected-items"></ul>
+        <p>Total Price: $<span id="total-price">0.00</span></p>
+        <button id="checkout-button">Checkout</button>
+    </div>
+
+    <script>
+        import { y } from './Rest_data_script.js';
+
+        var x = y;
+        var filename;
+        switch (x) {
+            case 1: filename = 'Charpai.json';
+                break;
+            case 2: filename = 'Meghdoot.json';
+                break;
+            case 3: filename = 'Dominos.json';
+                break;
+            case 4: filename = "Mcd.json";
+                break;
+            default: filename='Charpai.json';
+        }
+
+
+        let bucket = [];
+        let totalPrice = 0;
+
+        fetch(filename)
+            .then(response => response.json())
+            .then(data => {
+                const menuList = document.getElementById('menu');
+                data.forEach(item => {
+                    const listItem = document.createElement('li');
+                    listItem.innerHTML = `${item.name} - $${item.price.toFixed(2)} <button class="add-button">Add to Bucket</button>`;
+                    menuList.appendChild(listItem);
+                });
+
+                // add event listeners to the add buttons
+                const addButtons = document.querySelectorAll('.add-button');
+                addButtons.forEach(button => {
+                    button.addEventListener('click', (e) => {
+                        const item = data.find(item => item.name === e.target.parentNode.textContent.split(' - ')[0]);
+                        addToBucket(item.name, item.price);
+                    });
+                });
+            })
+            .catch(error => console.error('Error fetching the JSON data:', error));
+
+        function addToBucket(name, price) {
+            bucket.push({ name, price });
+            updateBucket();
+        }
+
+        function updateBucket() {
+            const selectedItemsList = document.getElementById('selected-items');
+            selectedItemsList.innerHTML = '';
+            totalPrice = 0;
+            bucket.forEach(item => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `${item.name} - $${item.price.toFixed(2)}`;
+                selectedItemsList.appendChild(listItem);
+                totalPrice += item.price;
+            });
+            document.getElementById('total-price').textContent = totalPrice.toFixed(2);
+        }
+        document.getElementById('checkout-button').addEventListener('click', () => {
+            alert('Order placed');
+            // Clear the bucket
+            bucket = [];
+            updateBucket();
+        });
+
+    </script>
+</body>
+
+</html>

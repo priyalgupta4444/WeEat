@@ -1,0 +1,30 @@
+[
+    {
+        "Name":"Charpai",
+        "id":1,
+        "Timing" : "9 AM - 11 PM",
+        "Phone no" : 9856324875,
+        "img": "https://t4.ftcdn.net/jpg/03/61/86/91/360_F_361869194_7JGmIOSj2iUNi0AYoVhVyhKvaN6PkOah.jpg"
+    },
+    {
+        "Name":"meghdoot",
+        "id":2,
+        "Timing" : "9 AM - 12 AM",
+        "Phone no" : 9856324545,
+        "img": "https://www.thespruceeats.com/thmb/htgE7CCYS5FaW99oF183gVl7e_Q=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-639389404-5c450e724cedfd00015b09d5.jpg"
+    },
+    {
+        "Name":"Dominos",
+        "id":3,
+        "Timing" : "10 AM - 11 PM",
+        "Phone no" : 9845324875,
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHmurYM3Sa8p0CSesl7OAED5Du8yXZEIGPhQ&s"
+    },
+    {
+        "Name":"McD",
+        "id":4,
+        "Timing" : "9 AM - 11 PM",
+        "Phone no" : 4875324875,
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3OQzUWflVdKvSP2J8ipjODOpbMuIAvrwFQw&s"
+    }
+]

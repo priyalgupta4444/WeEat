@@ -1,0 +1,26 @@
+[
+    {
+        "name" : "User1",
+        "username" : "username1",
+        "pass": "password1",
+        "email" : "email1",
+        "mob": 1345678900,
+        "address": "address1"
+    },
+    {
+        "name" : "User2",
+        "username" : "username2",
+        "pass": "password2",
+        "email" : "email2",
+        "mob": 1345678905,
+        "address": "address2"
+    },
+    {
+        "name" : "User3",
+        "username" : "username3",
+        "pass": "password3",
+        "email" : "email3",
+        "mob": 1345678995,
+        "address": "address3"
+    }
+]
